@@ -1,0 +1,39 @@
+.auction-list-container {
+  padding: 20px;
+}
+
+.auction-list-container h2 {
+  margin-bottom: 20px;
+}
+
+.auction-list {
+  list-style: none;
+  padding: 0;
+}
+
+.auction-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.auction-card h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.details-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.details-btn:hover {
+  background: #0056b3;
+}

@@ -1,0 +1,48 @@
+.verification-container {
+  padding: 20px;
+}
+
+.verification-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.verification-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.verification-table th,
+.verification-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.verification-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.verified {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.verify-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.verify-btn:hover {
+  background-color: #0056b3;
+}

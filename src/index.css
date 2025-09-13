@@ -1,0 +1,129 @@
+/* index.css — global styles and utilities */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #007bff;
+  --accent: #00c6ff;
+  --muted: #6b7280;
+  --bg1: #f0f8ff;
+  --bg2: #e6f7ff;
+  --card: #ffffff;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #111827;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App container */
+.app-container {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Reusable card */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+.btn.secondary { background: #6b7280; }
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .brand { color: #fff; font-weight: 700; font-size: 18px; }
+.navbar a {
+  color: #fff;
+  margin-left: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Footer */
+.footer {
+  background: #111827;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Forms */
+form {
+  background: var(--card);
+  max-width: 480px;
+  margin: 28px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.04);
+  animation: floatIn .5s ease both;
+}
+.form-group { margin-bottom: 14px; }
+label { display: block; margin-bottom: 6px; font-weight: 600; color: #111827; }
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow .12s ease, transform .12s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 8px 20px rgba(59,130,246,0.12);
+  transform: translateY(-2px);
+}
+
+/* Small helpers */
+.center { display:flex; align-items:center; justify-content:center; }
+.text-muted { color: var(--muted); }
+
+/* Animations */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container { padding: 16px; }
+  .navbar { flex-direction: column; gap: 8px; align-items: flex-start; }
+}

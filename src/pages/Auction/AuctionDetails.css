@@ -1,0 +1,12 @@
+.auction-details-container {
+  padding: 20px;
+}
+
+.auction-details-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.auction-details-container p {
+  margin: 8px 0;
+}

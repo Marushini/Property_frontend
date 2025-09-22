@@ -8,7 +8,7 @@ const LoginForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    role: "buyer",
+    role: "buyer", // initial selection, but backend decides final role
   });
 
   const [loading, setLoading] = useState(false);
@@ -22,11 +22,14 @@ const LoginForm = ({ onClose }) => {
     setLoading(true);
 
     try {
-      const res = await fetch("https://property-backend-o26n.onrender.com/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://property-backend-o26n.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await res.json();
 
@@ -34,11 +37,12 @@ const LoginForm = ({ onClose }) => {
         alert("Login successful!");
         onClose(); // close modal
 
-        // Save token if backend returns one
+        // Save token and user info if backend returns them
         if (data.token) localStorage.setItem("token", data.token);
+        if (data.role) localStorage.setItem("role", data.role);
 
-        // Redirect based on role
-        switch (formData.role) {
+        // Redirect based on role returned from backend
+        switch (data.role) {
           case "admin":
             navigate("/admin/dashboard");
             break;
@@ -65,7 +69,9 @@ const LoginForm = ({ onClose }) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
+        <span className="close" onClick={onClose}>
+          &times;
+        </span>
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <input
